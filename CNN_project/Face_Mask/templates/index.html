@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> FaceMask </title>
+    <style>
+    
+        form {
+
+          margin: 60px 450px;
+          text-align: center;
+          padding: 50px;
+          background-color: #C0C0C0;
+          border: 2px solid green;
+          
+        }
+
+
+        h1 {
+          text-align: center;
+          color: green;
+        }
+        h2 {
+          text-align: center;
+          color: black;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1> Face Mask Detection </h1>   
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+      
+      {% if result  %}
+        <h2> Image:    {{image_name}} </h2>
+        <h2> Prediction:    {{result}}</h2>
+      {% endif %}
+
+       
+</body>
+</html>
+
+
+
+
